@@ -9,6 +9,7 @@
       Title="ServicePage">
 
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
@@ -45,8 +46,9 @@
         </StackPanel>
 
 
-        
-        <ListView Name="ServiceListView" Grid.Row="2">
+        <Button Content="Добавить" Name="AddButton" Click="AddButton_Click"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"></Button>
+        <ListView Name="ServiceListView" Grid.Row="2" IsVisibleChanged="ServiceListView_IsVisibleChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -78,7 +80,7 @@
                         <TextBlock Text="{Binding DurationlnSeconds}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" FontSize="20"></TextBlock>
                         <TextBlock Text="{Binding Discount, StringFormat=*скидка {0} % }" Opacity="{Binding Discount}" Margin="5" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="16"></TextBlock>
                         <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
-                            <Button Name="EditButton" Content="редактировать" Margin="2"></Button>
+                            <Button Name="EditButton" Content="редактировать" Margin="2" Click="EditButton_Click"></Button>
                             <Button Name ="DeleteButton" Content="удалить" Margin="2"></Button>
                         </StackPanel>
                         

@@ -80,7 +80,7 @@ namespace GaripovAutoservice
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddEditPage());
+            Manager.MainFrame.Navigate(new AddEditPage(null));
 
         }
 
@@ -102,6 +102,26 @@ namespace GaripovAutoservice
         private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             UpdateServices();
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddEditPage(null));
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddEditPage( (sender as Button).DataContext as Service));
+        }
+
+        private void ServiceListView_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                garipov_autoserviceEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                ServiceListView.ItemsSource = garipov_autoserviceEntities.GetContext().Service.ToList();
+
+            }
         }
     }
 }
