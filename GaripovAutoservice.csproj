@@ -116,6 +116,12 @@
     <Compile Include="ServicePhoto.cs">
       <DependentUpon>GaripovModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SignUpPage.xaml.cs">
+      <DependentUpon>SignUpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>GaripovModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Tag.cs">
       <DependentUpon>GaripovModel.tt</DependentUpon>
     </Compile>
@@ -136,6 +142,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ServicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SignUpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,16 +189,6 @@
     <Resource Include="res\service_logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="GaripovModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>GaripovModel.Context.cs</LastGenOutput>
-      <DependentUpon>GaripovModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="GaripovModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GaripovModel.edmx</DependentUpon>
-      <LastGenOutput>GaripovModel.cs</LastGenOutput>
-    </Content>
     <Resource Include="Услуги автосервиса\Дополнительные услуги.png" />
     <Resource Include="Услуги автосервиса\Кондиционер.jpg" />
     <Resource Include="Услуги автосервиса\diz.jpg" />
@@ -210,6 +210,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GaripovModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GaripovModel.edmx</DependentUpon>
+      <LastGenOutput>GaripovModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="GaripovModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GaripovModel.edmx</DependentUpon>
+      <LastGenOutput>GaripovModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

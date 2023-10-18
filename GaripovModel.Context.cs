@@ -15,22 +15,20 @@ namespace GaripovAutoservice
     
     public partial class garipov_autoserviceEntities : DbContext
     {
-        public garipov_autoserviceEntities()
-            : base("name=garipov_autoserviceEntities")
-        {
-        }
-        private static garipov_autoserviceEntities _context;
 
+        private static garipov_autoserviceEntities _context;
         public static garipov_autoserviceEntities GetContext()
         {
             if (_context == null)
                 _context = new garipov_autoserviceEntities();
 
             return _context;
-
-
         }
-
+        public garipov_autoserviceEntities()
+            : base("name=garipov_autoserviceEntities")
+        {
+        }
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -46,6 +44,7 @@ namespace GaripovAutoservice
         public virtual DbSet<ProductSale> ProductSale { get; set; }
         public virtual DbSet<Service> Service { get; set; }
         public virtual DbSet<ServicePhoto> ServicePhoto { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tag> Tag { get; set; }
     }
 }
