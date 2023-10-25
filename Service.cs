@@ -11,7 +11,8 @@ namespace GaripovAutoservice
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Windows.Media;
+
     public partial class Service
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -26,7 +27,7 @@ namespace GaripovAutoservice
         {
             get
             {
-                if(Discount>0)
+                if (Discount > 0)
                 {
                     return Cost.ToString();
                 }
@@ -38,11 +39,12 @@ namespace GaripovAutoservice
 
         }
 
+
         public decimal NewCost
         {
             get
             {
-                if(Discount >0)
+                if (Discount > 0)
                 {
                     return ((decimal)Cost - (decimal)Cost * (decimal)Discount / 100);
                 }
@@ -54,7 +56,9 @@ namespace GaripovAutoservice
 
 
         }
-    
+
+       
+
         public int ID { get; set; }
         public string Title { get; set; }
         public decimal Cost { get; set; }
@@ -67,5 +71,22 @@ namespace GaripovAutoservice
         public virtual ICollection<ClientService> ClientService { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ServicePhoto> ServicePhoto { get; set; }
+        public SolidColorBrush FonStyle
+        {
+            get
+            {
+                if (Discount > 0)
+                {
+                    return (SolidColorBrush)new BrushConverter().ConvertFromString("LightGreen");
+
+                }
+                else
+                {
+                    return (SolidColorBrush)new BrushConverter().ConvertFromString("White");
+
+                }
+            }
+
+        }
     }
 }
